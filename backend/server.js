@@ -6,8 +6,10 @@ require('dotenv').config();
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.get('/test', (req, res) => {
-  res.json({ message: 'Server works!' });
+
+// Add this home route
+app.get('/', (req, res) => {
+  res.json({ message: 'Lost and Found API is running!' });
 });
 
 // Routes
