@@ -10,7 +10,7 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:8000/api/register', form);
+      await axios.post('https://lost-found-backend-x2yl.onrender.com/api/register', form);
       alert('Registered successfully! Please login.');
       navigate('/');
     } catch (err) {
@@ -24,30 +24,13 @@ function Register() {
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: '10px' }}>
-          <input
-            placeholder="Full Name"
-            style={{ width: '100%', padding: '8px' }}
-            onChange={e => setForm({...form, name: e.target.value})}
-            required
-          />
+          <input placeholder="Full Name" style={{ width: '100%', padding: '8px' }} onChange={e => setForm({...form, name: e.target.value})} required />
         </div>
         <div style={{ marginBottom: '10px' }}>
-          <input
-            placeholder="Email"
-            type="email"
-            style={{ width: '100%', padding: '8px' }}
-            onChange={e => setForm({...form, email: e.target.value})}
-            required
-          />
+          <input placeholder="Email" type="email" style={{ width: '100%', padding: '8px' }} onChange={e => setForm({...form, email: e.target.value})} required />
         </div>
         <div style={{ marginBottom: '10px' }}>
-          <input
-            placeholder="Password"
-            type="password"
-            style={{ width: '100%', padding: '8px' }}
-            onChange={e => setForm({...form, password: e.target.value})}
-            required
-          />
+          <input placeholder="Password" type="password" style={{ width: '100%', padding: '8px' }} onChange={e => setForm({...form, password: e.target.value})} required />
         </div>
         <button type="submit" style={{ width: '100%', padding: '10px', background: 'blue', color: 'white', border: 'none', borderRadius: '5px' }}>
           Register

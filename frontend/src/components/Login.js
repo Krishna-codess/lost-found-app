@@ -10,7 +10,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:8000/api/login', form);
+      const res = await axios.post('https://lost-found-backend-x2yl.onrender.com/api/login', form);
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('name', res.data.name);
       navigate('/dashboard');
@@ -25,22 +25,10 @@ function Login() {
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: '10px' }}>
-          <input
-            placeholder="Email"
-            type="email"
-            style={{ width: '100%', padding: '8px' }}
-            onChange={e => setForm({...form, email: e.target.value})}
-            required
-          />
+          <input placeholder="Email" type="email" style={{ width: '100%', padding: '8px' }} onChange={e => setForm({...form, email: e.target.value})} required />
         </div>
         <div style={{ marginBottom: '10px' }}>
-          <input
-            placeholder="Password"
-            type="password"
-            style={{ width: '100%', padding: '8px' }}
-            onChange={e => setForm({...form, password: e.target.value})}
-            required
-          />
+          <input placeholder="Password" type="password" style={{ width: '100%', padding: '8px' }} onChange={e => setForm({...form, password: e.target.value})} required />
         </div>
         <button type="submit" style={{ width: '100%', padding: '10px', background: 'blue', color: 'white', border: 'none', borderRadius: '5px' }}>
           Login
